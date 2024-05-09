@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Polnk.App.Pages.RegistrationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:InputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:SFButton="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    xmlns:strings="clr-namespace:Polnk.App.Resources">
+    <ScrollView
+        BackgroundColor="{StaticResource BlackBackground}"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <StackLayout Style="{StaticResource AppBackground}">
+            <StackLayout Padding="10">
+                <Label
+                    Style="{StaticResource Headline}"
+                    Text="{x:Static strings:Resources.CreateNewAccount}"
+                    TextColor="White" />
+                <Label
+                    Padding="10"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource Body}"
+                    Text="{x:Static strings:Resources.NewAccountNote}"
+                    TextColor="{StaticResource LoginInfoText}" />
+            </StackLayout>
+            <StackLayout Margin="10,30" Spacing="15">
+                <StackLayout>
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                        <Label Text="{x:Static strings:Resources.FullName}" TextColor="White" />
+                        <InputLayout:SfTextInputLayout
+                            x:Name="FullNameContainer"
+                            ErrorText="{x:Static strings:Resources.InvalidName}"
+                            Hint="{x:Static strings:Resources.FullNameNote}"
+                            ShowHint="True">
+                            <InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                <InputLayout:LabelStyle FontFamily="InterFont" TextColor="Red" />
+                            </InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            <InputLayout:SfTextInputLayout.HintLabelStyle>
+                                <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                            </InputLayout:SfTextInputLayout.HintLabelStyle>
+                            <Entry
+                                x:Name="InputFullName"
+                                Keyboard="Text"
+                                Style="{StaticResource InputLayoutStyle}" />
+                        </InputLayout:SfTextInputLayout>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="{x:Static strings:Resources.SelectGenders}" />
+                    </StackLayout>
+
+                    <StackLayout
+                        Margin="10"
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        Spacing="50">
+
+                        <StackLayout>
+
+                            <Button
+                                x:Name="ButtonMale"
+                                BackgroundColor="{StaticResource BlackBackground}"
+                                BorderColor="{StaticResource InputBackground}"
+                                BorderWidth="40"
+                                Clicked="GenderSelctionButton_Clicked"
+                                Text="Male"
+                                TextColor="White" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Button
+                                x:Name="ButtonFemale"
+                                BackgroundColor="{StaticResource BlackBackground}"
+                                BorderColor="{StaticResource InputBackground}"
+                                BorderWidth="40"
+                                Clicked="GenderSelctionButton_Clicked"
+                                Text="Female"
+                                TextColor="White" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Button
+                                x:Name="ButtonOthers"
+                                BackgroundColor="{StaticResource BlackBackground}"
+                                BorderColor="{StaticResource InputBackground}"
+                                BorderWidth="40"
+                                Clicked="GenderSelctionButton_Clicked"
+                                Text="Others"
+                                TextColor="White" />
+                        </StackLayout>
+
+
+                    </StackLayout>
+                    <Label
+                        x:Name="GenderSelectError"
+                        HorizontalOptions="Center"
+                        IsVisible="False"
+                        Text="{x:Static strings:Resources.InvalidGenderSelection}"
+                        TextColor="Red"
+                        VerticalOptions="Center" />
+                    <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                        <Label Text="{x:Static strings:Resources.DateofBirth}" TextColor="White" />
+                        <InputLayout:SfTextInputLayout
+                            x:Name="ContainerDate"
+                            Hint="{x:Static strings:Resources.DD_MM_YY}"
+                            ShowHint="True">
+                            <InputLayout:SfTextInputLayout.HintLabelStyle>
+                                <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                            </InputLayout:SfTextInputLayout.HintLabelStyle>
+
+                            <DatePicker x:Name="InputDate" />
+                        </InputLayout:SfTextInputLayout>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                        <Label Text="{x:Static strings:Resources.PhoneNumber}" TextColor="White" />
+                        <InputLayout:SfTextInputLayout
+                            x:Name="ContainerPhoneNo"
+                            ErrorText="{x:Static strings:Resources.InvalidPhoneNo}"
+                            Hint="{x:Static strings:Resources.EnterPhoneNumber}"
+                            ShowHint="True">
+                            <InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                <InputLayout:LabelStyle FontFamily="InterFont" TextColor="Red" />
+                            </InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            <InputLayout:SfTextInputLayout.HintLabelStyle>
+                                <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                            </InputLayout:SfTextInputLayout.HintLabelStyle>
+                            <Entry
+                                x:Name="InputPhoneNumber"
+                                Keyboard="Numeric"
+                                Style="{StaticResource InputLayoutStyle}" />
+                        </InputLayout:SfTextInputLayout>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <Button
+                    BackgroundColor="{StaticResource BlueGreenButton}"
+                    Clicked="Continue_Clicked"
+                    CornerRadius="5"
+                    Text="{x:Static strings:Resources.Continue}"
+                    TextColor="White" />
+
+
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

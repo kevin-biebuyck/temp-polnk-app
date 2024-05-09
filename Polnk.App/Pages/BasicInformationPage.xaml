@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Polnk.App.Pages.BasicInformationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:InputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:SFButton="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    xmlns:strings="clr-namespace:Polnk.App.Resources">
+    <ScrollView
+        BackgroundColor="{StaticResource BlackBackground}"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <StackLayout Style="{StaticResource AppBackground}">
+            <StackLayout
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                VerticalOptions="Start">
+                <SFButton:SfButton
+                    Margin="10,0,0,0"
+                    Background="{StaticResource InputBackground}"
+                    Clicked="ChangePic_clicked"
+                    CornerRadius="90"
+                    HeightRequest="90"
+                    HorizontalOptions="StartAndExpand"
+                    WidthRequest="90" />
+                <Grid Margin="20" ColumnSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource SubHeadline}"
+                        Text="60" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="{x:Static strings:Resources.Followers}"
+                        TextColor="grey" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Center"
+                        Style="{StaticResource SubHeadline}"
+                        Text="70" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Text="{x:Static strings:Resources.Following}"
+                        TextColor="grey" />
+                    <SFButton:SfButton
+                        Grid.RowSpan="2"
+                        Grid.Column="2"
+                        Background="Transparent"
+                        Clicked="ShareInfo_clicked"
+                        ImageAlignment="Default"
+                        ImageSize="30"
+                        ImageSource="Navigation.png"
+                        ShowIcon="True"
+                        WidthRequest="40" />
+                    <SFButton:SfButton
+                        Grid.RowSpan="2"
+                        Grid.Column="3"
+                        Background="Transparent"
+                        ImageAlignment="Default"
+                        ImageSize="30"
+                        ImageSource="Alerts.png"
+                        ShowIcon="True"
+                        WidthRequest="30" />
+                </Grid>
+            </StackLayout>
+            <StackLayout
+                Margin="5"
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                VerticalOptions="Start">
+                <Label
+                    Margin="10,0,0,0"
+                    FontSize="25"
+                    Text="Eve lemlercq">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Name_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout Orientation="Horizontal">
+                    <SFButton:SfButton
+                        Background="Transparent"
+                        ImageSize="8"
+                        ImageSource="OnlineIndicator.png"
+                        ShowIcon="True"
+                        TranslationY="-10" />
+                    <Label
+                        Margin="25,0,0,0"
+                        FontSize="12"
+                        Opacity="70"
+                        Text="available for work"
+                        TextColor="#FFFFFF"
+                        TranslationX="-50"
+                        TranslationY="5" />
+                </StackLayout>
+                <SFButton:SfButton
+                    Background="Transparent"
+                    Clicked="EditButton_clicked"
+                    ImageSize="25"
+                    ImageSource="Edit.png"
+                    ShowIcon="True"
+                    TranslationX="-10"
+                    TranslationY="1" />
+            </StackLayout>
+            <StackLayout>
+                <Label
+                    Margin="10,0,0,0"
+                    Text="CEO and Founder at POLNK"
+                    TextColor="#EFEFEF"
+                    TranslationX="30" />
+                <Label
+                    Margin="10,15,0,0"
+                    Opacity="90"
+                    Text="EVE HAS AN LLM FROM AND STUDIED FROM UNIVERSITY"
+                    TextColor="White" />
+            </StackLayout>
+            <StackLayout>
+                <Border
+                    Margin="15"
+                    Background="{StaticResource InputBackground}"
+                    HeightRequest="400"
+                    Stroke="White"
+                    StrokeDashArray="4 4"
+                    StrokeShape="RoundRectangle 10,10,10,10"
+                    StrokeThickness="1">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <SFButton:SfButton
+                            Background="{StaticResource InputBackground}"
+                            Clicked="AddIntro_clicked"
+                            ImageAlignment="Default"
+                            ImageSize="40"
+                            ImageSource="AddIntrobutton.png"
+                            ShowIcon="True" />
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="{x:Static strings:Resources.AddIntro}"
+                            TextColor="white" />
+                    </StackLayout>
+                </Border>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

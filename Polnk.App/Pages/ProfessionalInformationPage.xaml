@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Polnk.App.Pages.ProfessionalInformationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:InputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:strings="clr-namespace:Polnk.App.Resources">
+    <ScrollView
+        BackgroundColor="{StaticResource BlackBackground}"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <StackLayout
+            Margin="10,30"
+            Spacing="15"
+            Style="{StaticResource AppBackground}">
+            <StackLayout>
+                <Label
+                    Style="{StaticResource Headline}"
+                    Text="{x:Static strings:Resources.ProfessionalInfo}"
+                    TextColor="White" />
+                <Label
+                    Margin="30,0"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource Body}"
+                    Text="{x:Static strings:Resources.ProfessionalInfoNote}"
+                    TextColor="{StaticResource LoginInfoText}" />
+            </StackLayout>
+            <StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                    <Label Text="{x:Static strings:Resources.JobTitle}" TextColor="White" />
+                    <InputLayout:SfTextInputLayout
+                        x:Name="JobTitleContainer"
+                        ErrorText="{x:Static strings:Resources.InvalidJobTitle}"
+                        Hint="{x:Static strings:Resources.JobNote}"
+                        ShowHint="True">
+                        <InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            <InputLayout:LabelStyle FontFamily="InterFont" TextColor="Red" />
+                        </InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                        <InputLayout:SfTextInputLayout.HintLabelStyle>
+                            <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                        </InputLayout:SfTextInputLayout.HintLabelStyle>
+                        <Entry
+                            x:Name="InputJobTitle"
+                            Keyboard="Default"
+                            Style="{StaticResource InputLayoutStyle}" />
+                    </InputLayout:SfTextInputLayout>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="{x:Static strings:Resources.Skills}" TextColor="White" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <InputLayout:SfTextInputLayout
+                        Margin="0,20"
+                        HeightRequest="90"
+                        Hint="{x:Static strings:Resources.SkillsNote}"
+                        ShowHint="True">
+                        <InputLayout:SfTextInputLayout.HintLabelStyle>
+                            <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                        </InputLayout:SfTextInputLayout.HintLabelStyle>
+                        <Entry
+                            x:Name="InputSkillsNote"
+                            Style="{StaticResource InputLayoutStyle}"
+                            Text="{Binding SkillText}" />
+                    </InputLayout:SfTextInputLayout>
+                    <Button
+                        x:Name="AddButton"
+                        BackgroundColor="{StaticResource BlueGreenButton}"
+                        Command="{Binding AddChipCommand}"
+                        CommandParameter="{Binding Source={x:Reference Input_SkillsNote}, Path=Text}"
+                        HeightRequest="60"
+                        Text="{x:Static strings:Resources.Add}"
+                        TranslationY="-7" />
+                </StackLayout>
+                <FlexLayout
+                    AlignItems="Center"
+                    Direction="Row"
+                    FlowDirection="LeftToRight"
+                    JustifyContent="Center"
+                    Wrap="Wrap">
+                    <CollectionView ItemsSource="{Binding Chips}" SelectionMode="None">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="2" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <chip:SfChip
+                                    Margin="20"
+                                    CloseButtonClicked="CloseButton_Clicked"
+                                    CloseButtonColor="White"
+                                    HorizontalOptions="Center"
+                                    ShowCloseButton="true"
+                                    Text="{Binding}"
+                                    TextColor="White" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </FlexLayout>
+
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                <Label Text="{x:Static strings:Resources.Description}" TextColor="White" />
+                <InputLayout:SfTextInputLayout
+                    x:Name="DescriptionContainer"
+                    ErrorText="{x:Static strings:Resources.InvalidDescription}"
+                    HeightRequest="180"
+                    Hint="{x:Static strings:Resources.DescriptionNote}"
+                    ShowHint="True">
+                    <InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                        <InputLayout:LabelStyle FontFamily="InterFont" TextColor="Red" />
+                    </InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                    <InputLayout:SfTextInputLayout.HintLabelStyle>
+                        <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                    </InputLayout:SfTextInputLayout.HintLabelStyle>
+                    <Entry
+                        x:Name="InputDescription"
+                        Keyboard="Text"
+                        Style="{StaticResource InputLayoutStyle}" />
+                </InputLayout:SfTextInputLayout>
+            </StackLayout>
+            <Button
+                Margin="0,10"
+                BackgroundColor="{StaticResource BlueGreenButton}"
+                Clicked="ContinueButton_Clicked"
+                CornerRadius="5"
+                Text="{x:Static strings:Resources.Continue}"
+                TextColor="White" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
+

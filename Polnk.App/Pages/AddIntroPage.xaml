@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Polnk.App.Pages.AddIntroPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:InputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:SFButton="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    xmlns:chip="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:strings="clr-namespace:Polnk.App.Resources"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.Popup;assembly=Syncfusion.Maui.Popup">
+
+
+    <StackLayout>
+        <StackLayout
+            Padding="0,20,0,0"
+            HorizontalOptions="Start"
+            Orientation="Horizontal"
+            VerticalOptions="Start">
+            <SFButton:SfButton
+                Background="{StaticResource BlackBackground}"
+                ImageSize="20"
+                ImageSource="backnavigation.png"
+                ShowIcon="True" />
+            <Frame
+                Background="{StaticResource InputBackground}"
+                BorderColor="White"
+                HeightRequest="90"
+                TranslationX="-10"
+                WidthRequest="300" />
+        </StackLayout>
+        <StackLayout
+            Padding="20"
+            HorizontalOptions="Start"
+            VerticalOptions="Start">
+            <Frame
+                Background="{StaticResource InputBackground}"
+                HeightRequest="400"
+                WidthRequest="350" />
+        </StackLayout>
+
+        <ScrollView HorizontalScrollBarVisibility="Never" Orientation="Horizontal">
+            <StackLayout Orientation="Horizontal">
+                <chip:SfChip
+                    Margin="10"
+                    ImageSource="Userpic.png"
+                    ShowIcon="True"
+                    Text="{x:Static strings:Resources.You}"
+                    TextColor="White" />
+
+                <chip:SfChip
+                    x:Name="EducationButton"
+                    Margin="10"
+                    Clicked="EducationButton_Clicked"
+                    ImageSource="Education.png"
+                    ShowIcon="True"
+                    Text="{x:Static strings:Resources.Education}"
+                    TextColor="White" />
+
+
+                <chip:SfChip
+                    Margin="10"
+                    ImageSource="Experience.png"
+                    ShowIcon="True"
+                    Text="{x:Static strings:Resources.Experience}"
+                    TextColor="White" />
+
+                <chip:SfChip
+                    Margin="10"
+                    ImageSource="Languages.png"
+                    ShowIcon="True"
+                    Text="{x:Static strings:Resources.Langauages}"
+                    TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+        <Frame
+            x:Name="EducationFrame"
+            Margin="10"
+            BackgroundColor="{StaticResource BlackBackground}"
+            IsVisible="False">
+            <StackLayout Orientation="Horizontal">
+
+
+                <Button
+                    Margin="10"
+                    Background="{StaticResource InputBackground}"
+                    CornerRadius="50"
+                    Text="Highschool"
+                    TextColor="White" />
+                <Button
+                    Margin="10"
+                    Background="{StaticResource InputBackground}"
+                    Clicked="MasterButton_clicked"
+                    CornerRadius="50"
+                    Text="Master"
+                    TextColor="White" />
+                <Button
+                    Margin="10"
+                    Background="{StaticResource InputBackground}"
+                    Clicked="AddNewButton_clicked"
+                    CornerRadius="50"
+                    Text="Add New"
+                    TextColor="White" />
+            </StackLayout>
+        </Frame>
+        <StackLayout>
+            <syncfusion:SfPopup
+                x:Name="PopupForm"
+                HeightRequest="550"
+                ShowCloseButton="True"
+                ShowFooter="True"
+                ShowHeader="False"
+                WidthRequest="500">
+                <syncfusion:SfPopup.PopupStyle>
+                    <syncfusion:PopupStyle PopupBackground="{StaticResource InputBackground}" />
+                </syncfusion:SfPopup.PopupStyle>
+                <syncfusion:SfPopup.FooterTemplate>
+                    <DataTemplate>
+                        <Button
+                            BackgroundColor="{StaticResource BlueGreenButton}"
+                            HeightRequest="60"
+                            Text="Save and Record"
+                            WidthRequest="300" />
+                    </DataTemplate>
+                </syncfusion:SfPopup.FooterTemplate>
+
+                <syncfusion:SfPopup.ContentTemplate>
+
+                    <DataTemplate>
+                        <StackLayout Orientation="Vertical">
+                            <StackLayout Margin="10" Orientation="Horizontal">
+                                <Image Source="Education.png" />
+                                <Label
+                                    Style="{StaticResource Headline}"
+                                    Text="{x:Static strings:Resources.Education}"
+                                    TranslationX="10" />
+                            </StackLayout>
+
+                            <Label Text="{x:Static strings:Resources.EnterDetails}" TextColor="Gray" />
+
+                            <Label
+                                HorizontalOptions="Start"
+                                Style="{StaticResource Headline}"
+                                Text="{x:Static strings:Resources.Degree}"
+                                TranslationY="20" />
+                            <StackLayout Margin="10" TranslationY="20">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+
+                                    </Grid.ColumnDefinitions>
+                                    <Button
+                                        x:Name="BachelorButton"
+                                        Grid.Column="0"
+                                        BackgroundColor="Gray"
+                                        Clicked="DegreeButton_Clicked"
+                                        CornerRadius="30"
+                                        Text="{x:Static strings:Resources.Bachelor}"
+                                        TextColor="Black"
+                                        WidthRequest="120" />
+                                    <Button
+                                        x:Name="MasterButton"
+                                        Grid.Column="1"
+                                        Background="Gray"
+                                        Clicked="DegreeButton_Clicked"
+                                        CornerRadius="30"
+                                        Text="{x:Static strings:Resources.Master}"
+                                        TextColor="Black"
+                                        WidthRequest="120" />
+                                    <Button
+                                        x:Name="DoctoralButton"
+                                        Grid.Column="2"
+                                        Background="Gray"
+                                        Clicked="DegreeButton_Clicked"
+                                        CornerRadius="30"
+                                        Text="{x:Static strings:Resources.Doctoral}"
+                                        TextColor="Black"
+                                        WidthRequest="120" />
+                                    <Button
+                                        x:Name="ProfessionalButton"
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Margin="10"
+                                        Background="Gray"
+                                        Clicked="DegreeButton_Clicked"
+                                        CornerRadius="30"
+                                        Text="{x:Static strings:Resources.Professional}"
+                                        TextColor="Black"
+                                        WidthRequest="120" />
+                                </Grid>
+                                <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                                    <Label Text="{x:Static strings:Resources.StartDate}" TextColor="White" />
+                                    <InputLayout:SfTextInputLayout
+                                        x:Name="ContainerFirstDate"
+                                        Hint="{x:Static strings:Resources.DD_MM_YY}"
+                                        ShowHint="True">
+                                        <InputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                                        </InputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <DatePicker x:Name="InputStartDate" />
+                                    </InputLayout:SfTextInputLayout>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                                    <Label Text="{x:Static strings:Resources.LastDate}" TextColor="White" />
+                                    <InputLayout:SfTextInputLayout
+                                        x:Name="ContainerLastDate"
+                                        Hint="{x:Static strings:Resources.DD_MM_YY}"
+                                        ShowHint="True">
+                                        <InputLayout:SfTextInputLayout.HintLabelStyle>
+                                            <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                                        </InputLayout:SfTextInputLayout.HintLabelStyle>
+
+                                        <DatePicker x:Name="InputLastDate" />
+                                    </InputLayout:SfTextInputLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+
+                    </DataTemplate>
+
+                </syncfusion:SfPopup.ContentTemplate>
+            </syncfusion:SfPopup>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

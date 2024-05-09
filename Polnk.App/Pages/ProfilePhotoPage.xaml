@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Polnk.App.Pages.ProfilePhotoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:InputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:SFButton="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    xmlns:strings="clr-namespace:Polnk.App.Resources">
+    <StackLayout
+        Padding="20"
+        BackgroundColor="{StaticResource BlackBackground}"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+
+        <StackLayout Padding="10">
+            <Label
+                Style="{StaticResource Headline}"
+                Text="{x:Static strings:Resources.ProfilePhoto}"
+                TextColor="White" />
+            <Label
+                Margin="30,0"
+                HorizontalOptions="Center"
+                Style="{StaticResource Body}"
+                Text="{x:Static strings:Resources.PhotoNote}"
+                TextColor="{StaticResource LoginInfoText}" />
+        </StackLayout>
+        <SFButton:SfButton
+            x:Name="ContainerPicture"
+            Padding="0"
+            Background="{StaticResource InputBackground}"
+            BackgroundColor="Grey"
+            Clicked="UploadButton_Clicked"
+            CornerRadius="150"
+            HeightRequest="300"
+            WidthRequest="300">
+            <Image x:Name="UploadedImage" Aspect="AspectFill" />
+
+        </SFButton:SfButton>
+        <Label
+            x:Name="ImageUploadError"
+            HorizontalOptions="Center"
+            IsVisible="False"
+            Text="{x:Static strings:Resources.InvalidImage}"
+            TextColor="Red"
+            VerticalOptions="Center" />
+        <Button
+            Margin="30"
+            Background="{StaticResource BlueGreenButton}"
+            Clicked="SavePicButton_Clicked"
+            HorizontalOptions="Center"
+            Text="{x:Static strings:Resources.Save}"
+            VerticalOptions="Center" />
+
+
+    </StackLayout>
+
+
+</ContentPage>

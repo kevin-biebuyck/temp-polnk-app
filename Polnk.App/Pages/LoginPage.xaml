@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Polnk.App.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:InputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:SFButton="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    xmlns:strings="clr-namespace:Polnk.App.Resources"
+    NavigationPage.HasNavigationBar="False">
+    <ScrollView
+        BackgroundColor="{StaticResource BlackBackground}"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <StackLayout Style="{StaticResource AppBackground}">
+            <StackLayout>
+                <Label
+                    Style="{StaticResource Headline}"
+                    Text="{x:Static strings:Resources.Welcome}"
+                    TextColor="#FFFFFF" />
+                <Label
+                    Margin="30,0"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource Body}"
+                    Text="{x:Static strings:Resources.LoginNote}"
+                    TextColor="{StaticResource LoginInfoText}" />
+            </StackLayout>
+            <StackLayout Margin="10,30" Spacing="15">
+                <StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                        <Label Text="{x:Static strings:Resources.EmailAddress}" TextColor="#FEFDFF" />
+                        <InputLayout:SfTextInputLayout
+                            x:Name="Container_Email"
+                            ErrorText="{x:Static strings:Resources.InvalidEmail}"
+                            Hint="{x:Static strings:Resources.EnterEmail}"
+                            ShowHint="True">
+                            <InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                <InputLayout:LabelStyle FontFamily="InterFont" TextColor="Red" />
+                            </InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            <InputLayout:SfTextInputLayout.HintLabelStyle>
+                                <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                            </InputLayout:SfTextInputLayout.HintLabelStyle>
+                            <Entry
+                                x:Name="InputEmail"
+                                Keyboard="Email"
+                                Style="{StaticResource InputLayoutStyle}" />
+                        </InputLayout:SfTextInputLayout>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+                        <Label Text="{x:Static strings:Resources.Password}" TextColor="#FEFDFF" />
+                        <InputLayout:SfTextInputLayout
+                            x:Name="Container_Password"
+                            EnablePasswordVisibilityToggle="True"
+                            ErrorText="{x:Static strings:Resources.InvalidPassword}"
+                            Hint="{x:Static strings:Resources.EnterPassword}"
+                            ShowHint="True">
+                            <InputLayout:SfTextInputLayout.HintLabelStyle>
+                                <InputLayout:LabelStyle FontFamily="InterFont" TextColor="{StaticResource LoginInfoText}" />
+                            </InputLayout:SfTextInputLayout.HintLabelStyle>
+                            <InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                                <InputLayout:LabelStyle FontFamily="InterFont" TextColor="Red" />
+                            </InputLayout:SfTextInputLayout.ErrorLabelStyle>
+                            <Entry
+                                x:Name="InputPassword"
+                                IsPassword="True"
+                                Style="{StaticResource InputLayoutStyle}" />
+
+                        </InputLayout:SfTextInputLayout>
+                    </StackLayout>
+                </StackLayout>
+                <Button
+                    BackgroundColor="{StaticResource BlackBackground}"
+                    Clicked="Forgot_Clicked"
+                    HorizontalOptions="EndAndExpand"
+                    Text="{x:Static strings:Resources.ForgotPassword}"
+                    TextColor="{StaticResource LoginInfoText}" />
+                <Button
+                    Margin="0,10"
+                    BackgroundColor="{StaticResource BlueGreenButton}"
+                    Clicked="Login_Click"
+                    CornerRadius="5"
+                    Text="{x:Static strings:Resources.Login}"
+                    TextColor="White" />
+                <StackLayout
+                    Margin="0,10"
+                    HorizontalOptions="CenterAndExpand"
+                    Orientation="Horizontal"
+                    Spacing="10">
+                    <Rectangle
+                        BackgroundColor="SlateGray"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+                    <Label Text="{x:Static strings:Resources.Or}" TextColor="White" />
+                    <Rectangle
+                        BackgroundColor="SlateGray"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <StackLayout Spacing="20">
+                    <SFButton:SfButton
+                        ImageSource="Google.png"
+                        ShowIcon="True"
+                        Style="{StaticResource SocialLoginButton}"
+                        Text="{x:Static strings:Resources.GoogleLogin}" />
+                    <SFButton:SfButton
+                        ImageSource="apple.png"
+                        ShowIcon="true"
+                        Style="{StaticResource SocialLoginButton}"
+                        Text="{x:Static strings:Resources.AppleLogin}" />
+                </StackLayout>
+                <StackLayout Margin="0,20" Spacing="10">
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{x:Static strings:Resources.NewToPolnk}"
+                        TextColor="White">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="NewUser_Clicked" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Button
+                        BackgroundColor="{StaticResource BlackBackground}"
+                        Clicked="CreateNew_clicked"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{x:Static strings:Resources.CreateAccount}"
+                        TextColor="{StaticResource LoginInfoText}" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

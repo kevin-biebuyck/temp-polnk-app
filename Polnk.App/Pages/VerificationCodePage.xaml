@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Polnk.App.Pages.VerificationCodePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:InputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+    xmlns:SFButton="clr-namespace:Syncfusion.Maui.Buttons;assembly=Syncfusion.Maui.Buttons"
+    xmlns:strings="clr-namespace:Polnk.App.Resources">
+    <ScrollView
+        BackgroundColor="{StaticResource BlackBackground}"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <StackLayout Style="{StaticResource AppBackground}">
+            <StackLayout Padding="10">
+                <Label
+                    Style="{StaticResource Headline}"
+                    Text="{x:Static strings:Resources.Verfication}"
+                    TextColor="White" />
+                <Label
+                    Padding="10"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource Body}"
+                    Text="{x:Static strings:Resources.VerficationNote}"
+                    TextColor="{StaticResource LoginInfoText}" />
+            </StackLayout>
+            <StackLayout Margin="10,30" Spacing="15">
+                <StackLayout>
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Horizontal"
+                        Spacing="10"
+                        WidthRequest="350">
+                        <Label TextColor="White" />
+                        <InputLayout:SfTextInputLayout>
+                            <Entry
+                                x:Name="EntryNo1"
+                                Keyboard="Numeric"
+                                Style="{StaticResource NumInputLayoutStyle}" />
+
+                        </InputLayout:SfTextInputLayout>
+                        <InputLayout:SfTextInputLayout>
+                            <Entry
+                                x:Name="EntryNo2"
+                                Keyboard="Numeric"
+                                Style="{StaticResource NumInputLayoutStyle}" />
+
+                        </InputLayout:SfTextInputLayout>
+                        <InputLayout:SfTextInputLayout>
+                            <Entry
+                                x:Name="EntryNo3"
+                                Keyboard="Numeric"
+                                Style="{StaticResource NumInputLayoutStyle}" />
+
+                        </InputLayout:SfTextInputLayout>
+                        <InputLayout:SfTextInputLayout>
+                            <Entry
+                                x:Name="EntryNo4"
+                                Keyboard="Numeric"
+                                Style="{StaticResource NumInputLayoutStyle}" />
+
+                        </InputLayout:SfTextInputLayout>
+                        <InputLayout:SfTextInputLayout>
+                            <Entry
+                                x:Name="EntryNo5"
+                                Keyboard="Numeric"
+                                Style="{StaticResource NumInputLayoutStyle}" />
+
+                        </InputLayout:SfTextInputLayout>
+                    </StackLayout>
+
+
+                </StackLayout>
+                <Button
+                    BackgroundColor="{StaticResource BlueGreenButton}"
+                    Clicked="Change_Password"
+                    CornerRadius="5"
+                    Text="{x:Static strings:Resources.Verify}"
+                    TextColor="White" />
+
+
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

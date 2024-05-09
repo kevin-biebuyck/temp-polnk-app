@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Polnk.App.Pages.SummaryQuestionsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    >
+    <ScrollView
+        BackgroundColor="{StaticResource BlackBackground}"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Label Style="{StaticResource Headline}" Text="Eve Leclercq" />
+            <Image Aspect="Fill" Source="Google_icon.png" />
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
